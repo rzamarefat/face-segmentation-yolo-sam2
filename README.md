@@ -2,6 +2,11 @@
 A face segmentation tool based on YOLOv8 and SAM2
 
 ## Demo
+
+
+https://github.com/user-attachments/assets/957bf1aa-0e53-412d-a59a-f29c82ef55bc
+
+
 ## How to use
 - Create a Python3 virtual env
 ```
