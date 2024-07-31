@@ -83,7 +83,7 @@ class FaceSegmentHandler:
         return masked_image
         
 
-    def segment_on_video(self, video_path):
+    def segment_on_video(self, video_path, ffmpeg_exe_file_path):
         cap = cv2.VideoCapture(video_path)
         video_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
         video_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
@@ -115,13 +115,12 @@ class FaceSegmentHandler:
         cv2.destroyAllWindows()
 
 
-        self._write_frames_ffmpeg("output.mp4", fps, video_width*2,video_height)
+        self._write_frames_ffmpeg("output.mp4", fps, video_width*2,video_height, ffmpeg_exe_file_path)
     
 
-    def _write_frames_ffmpeg(self, output_video_path, fps, video_width, video_height):
-        ffmpeg_path = r'C:\ffmpeg\bin\ffmpeg.exe'
+    def _write_frames_ffmpeg(self, output_video_path, fps, video_width, video_height, ffmpeg_exe_file_path):
         ffmpeg_command = [
-            ffmpeg_path,
+            ffmpeg_exe_file_path,
             '-y',
             '-f', 'rawvideo',
             '-vcodec', 'rawvideo',
@@ -142,14 +141,5 @@ class FaceSegmentHandler:
 
         process.stdin.close()
 
-
-if __name__ == "__main__":
-    
-    img = cv2.imread(r".\test_data\people.jpg")
-    fs = FaceSegmentHandler()
-    segmented_img = fs.segment_on_image(img)
-    cv2.imwrite("segmented_img.png", segmented_img)
-    fs.segment_on_video(r".\test_data\1.mp4")
-    
 
 
