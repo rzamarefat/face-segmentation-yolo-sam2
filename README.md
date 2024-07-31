@@ -1,5 +1,5 @@
 # Face Segmentation
-## A face segmentation tool based on YOLOv8 and SAM2
+A face segmentation tool based on YOLOv8 and SAM2
 
 ## Demo
 ## How to use
