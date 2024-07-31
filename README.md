@@ -13,7 +13,6 @@ https://github.com/user-attachments/assets/957bf1aa-0e53-412d-a59a-f29c82ef55bc
 python3 -m venv ./venv
 ```
 - Activate the environment creatred in the previous step
-- cd to back folder
 - install the requirements in requirements.txt file
 ```
 pip install -r requirements
